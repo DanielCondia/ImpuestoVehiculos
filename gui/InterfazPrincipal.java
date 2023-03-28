@@ -1,16 +1,22 @@
 package co.edu.uptc.gui;
 
+import co.edu.uptc.negocio.Eventos;
+import jdk.jfr.Event;
+
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.awt.event.ActionListener;
+
 public class InterfazPrincipal extends JFrame {
 	private static final JPanel panel = new JPanel(), panel2 = new JPanel(), panelBotones = new JPanel();
 	//Datos del propietario
 	public JTextField inputPrimerNombre, inputSegundoNombre, inputApellidos, inputNumeroDoc, inputGenero;
 	//Datos del vehiculo
 	public JTextField inputColor, inputPlaca, inputModelo, inputValorComercial, inputImpuestos;
-	//Botones
-	private final JButton botonGuardar;
+	//Datos de los botones
+	public JButton botonGuardar, botonCalcularImpuestos, botonOrdenarNombre, botonTotalImpPagar, botonBuscarVehiculo,
+	botonBuscarPersona;
 	public InterfazPrincipal(){
 		/*
 		* Damos dimensiones con el gridLayout para que el primer y segundo panel
@@ -50,6 +56,8 @@ public class InterfazPrincipal extends JFrame {
 		add(panel, BorderLayout.WEST);
 		//Se agrega el segundo panel en la parte derecha del JFrame, con el metodo East
 		add(panel2, BorderLayout.EAST);
+		//Se agrega el panel de los botones en la parte inferior del JFrame, con el metodo South
+		add(panelBotones, BorderLayout.SOUTH);
 		//Cuadramos la pagina para que se ajuste a las dimensiones
 		pack();
 		setSize(500,200);
@@ -149,9 +157,34 @@ public class InterfazPrincipal extends JFrame {
 		panel2.add(inputImpuestos);
 
 		//Espacio para cuadrar los botones
-
 		//Boton para guardar la información
 		botonGuardar = new JButton("Guardar");
 		panelBotones.add(botonGuardar);
+		botonGuardar.addActionListener(new Eventos(this));
+
+		//Boton para calcular los impuestos
+		botonCalcularImpuestos = new JButton("Calcular impuestos");
+		panelBotones.add(botonCalcularImpuestos);
+		botonCalcularImpuestos.addActionListener(new Eventos(this));
+
+		//Botón para ordenar por nombre
+		botonOrdenarNombre = new JButton("Ordenar por Nombre");
+		panelBotones.add(botonOrdenarNombre);
+		botonOrdenarNombre.addActionListener(new Eventos(this));
+
+		//Boton impuestos a pagar
+		botonTotalImpPagar = new JButton("Total Impuesto a Pagar");
+		panelBotones.add(botonTotalImpPagar);
+		botonTotalImpPagar.addActionListener(new Eventos(this));
+
+		//Botón para buscar por vehículo
+		botonBuscarVehiculo = new JButton("Buscar Vehículo");
+		panelBotones.add(botonBuscarVehiculo);
+		botonBuscarVehiculo.addActionListener(new Eventos(this));
+
+		//Botón para buscar por persona
+		botonBuscarPersona = new JButton("Buscar Persona");
+		panelBotones.add(botonBuscarPersona);
+		botonBuscarPersona.addActionListener(new Eventos(this));
 	}
 }
