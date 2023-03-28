@@ -3,23 +3,23 @@ package co.edu.uptc.gui;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
-
 public class InterfazPrincipal extends JFrame {
-	private static final JPanel panel = new JPanel(), panel2 = new JPanel();
+	private static final JPanel panel = new JPanel(), panel2 = new JPanel(), panelBotones = new JPanel();
 	//Datos del propietario
 	public JTextField inputPrimerNombre, inputSegundoNombre, inputApellidos, inputNumeroDoc, inputGenero;
 	//Datos del vehiculo
 	public JTextField inputColor, inputPlaca, inputModelo, inputValorComercial, inputImpuestos;
+	//Botones
+	private final JButton botonGuardar;
 	public InterfazPrincipal(){
 		/*
 		* Damos dimensiones con el gridLayout para que el primer y segundo panel
 		* queden como una tabla
 		* */
 		LayoutManager layout = new GridLayout(5,3,2,2);
+		LayoutManager layoutBotones = new GridLayout(2,3,2,2);
 
-		/*
-		* Ahora con BorderLayout, cuadramos un panel a la izquierda y otro a la derecha
-		* */
+		// Ahora con BorderLayout, cuadramos un panel a la izquierda y otro a la derecha
 		LayoutManager posicion = new BorderLayout();
 
 		//Damos dimensión de tabla al primer panel
@@ -27,6 +27,9 @@ public class InterfazPrincipal extends JFrame {
 
 		//Damos dimensión de tabla al segundo panel
 		panel2.setLayout(layout);
+
+		//Damos dimensión de tabla al panel de los botones
+		panelBotones.setLayout(layoutBotones);
 
 		//Agregamos las posiciones al JFrame
 		setLayout(posicion);
@@ -145,5 +148,10 @@ public class InterfazPrincipal extends JFrame {
 		inputImpuestos = new JTextField();
 		panel2.add(inputImpuestos);
 
+		//Espacio para cuadrar los botones
+
+		//Boton para guardar la información
+		botonGuardar = new JButton("Guardar");
+		panelBotones.add(botonGuardar);
 	}
 }
