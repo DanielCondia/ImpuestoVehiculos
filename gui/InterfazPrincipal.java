@@ -1,12 +1,10 @@
 package co.edu.uptc.gui;
 
 import co.edu.uptc.negocio.Eventos;
-import jdk.jfr.Event;
 
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
-import java.awt.event.ActionListener;
 
 public class InterfazPrincipal extends JFrame {
 	private static final JPanel panel = new JPanel(), panel2 = new JPanel(), panelBotones = new JPanel();
