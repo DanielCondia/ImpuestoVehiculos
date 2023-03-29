@@ -36,15 +36,12 @@ public class BaseDatos {
 				listaVehiculos.get(posicion).totalImpuestos());
 	}
 	public static void ordenarNombres(){
-		System.out.println("Entro a ordenar nombres");
-		System.out.println("Lista original de propietarios");
-		for(Propietario e : listaPropietarios){
-			System.out.println(e);
-		}
 		Collections.sort(listaPropietarios);
-		System.out.println("Lista ordenada: ");
-		for (Propietario e : listaPropietarios){
-			System.out.println(e);
+		StringBuilder nombresOrdenados = new StringBuilder();
+		for (Propietario listaPropietario : listaPropietarios) {
+			nombresOrdenados.append("\n ").append(listaPropietario);
 		}
+		JOptionPane.showMessageDialog(null, "La lista ordenada es: " +
+				nombresOrdenados);
 	}
 }
