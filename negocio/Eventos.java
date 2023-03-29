@@ -28,15 +28,18 @@ public class Eventos implements ActionListener {
 			interfazPrincipal.inputPlaca.setText(""); interfazPrincipal.inputModelo.setText("");
 			interfazPrincipal.inputValorComercial.setText(""); interfazPrincipal.inputImpuestos.setText("");
 		}else if(this.interfazPrincipal.botonCalcularImpuestos == e.getSource()){
-			//Preguntamos el impuesto que desea calcular
+			//Preguntamos cual propietario se desea calcular el impuesto
 			String datoEditar = JOptionPane.showInputDialog(null,"A cual propietario desea " +
 					"calcular el impuesto. (Ingrese el apellido o el número de documento)");
-			BaseDatos.confirmacion(datoEditar);
+			BaseDatos.totalImpuestos(datoEditar);
 		}else if(this.interfazPrincipal.botonOrdenarNombre == e.getSource()){
 			//Llamamos metodo para ordenar los datos
 			BaseDatos.ordenarNombres();
 		}else if(this.interfazPrincipal.botonTotalImpPagar == e.getSource()){
-			System.out.println("Entro a total impuestos a pagar");
+			//Ingresamos el propietario al que se le quiere calcular el valor total a pagar
+			String propietarioCalcular = JOptionPane.showInputDialog(null, "A cual propitario " +
+					"desea calcular el total a pagar? (Ingrese el apllido o el número de documento)");
+			BaseDatos.confirmacionTotalPagar(propietarioCalcular);
 		}else if(this.interfazPrincipal.botonBuscarVehiculo == e.getSource()){
 			System.out.println("Entro a buscar vehiculo");
 		}else if(this.interfazPrincipal.botonBuscarPersona == e.getSource()){
