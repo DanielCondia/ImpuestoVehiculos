@@ -4,8 +4,8 @@ import co.edu.uptc.negocio.Propietario;
 import co.edu.uptc.negocio.Vehiculo;
 
 import javax.swing.*;
+import java.util.Collections;
 import java.util.LinkedList;
-
 public class BaseDatos {
 	private static final LinkedList<Propietario> listaPropietarios = new LinkedList<>();
 	private static final LinkedList<Vehiculo> listaVehiculos = new LinkedList<>();
@@ -33,7 +33,18 @@ public class BaseDatos {
 			}
 		}
 		JOptionPane.showMessageDialog(null, "El total de los impuestos es= " +
-				listaVehiculos.get(posicion).totalImpuestos() + " y el valor total es= " +
-				listaVehiculos.get(posicion).totalValor());
+				listaVehiculos.get(posicion).totalImpuestos());
+	}
+	public static void ordenarNombres(){
+		System.out.println("Entro a ordenar nombres");
+		System.out.println("Lista original de propietarios");
+		for(Propietario e : listaPropietarios){
+			System.out.println(e);
+		}
+		Collections.sort(listaPropietarios);
+		System.out.println("Lista ordenada: ");
+		for (Propietario e : listaPropietarios){
+			System.out.println(e);
+		}
 	}
 }

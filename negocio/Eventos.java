@@ -33,7 +33,8 @@ public class Eventos implements ActionListener {
 					"calcular el impuesto. (Ingrese el apellido o el número de documento)");
 			BaseDatos.confirmacion(datoEditar);
 		}else if(this.interfazPrincipal.botonOrdenarNombre == e.getSource()){
-			System.out.println("Entro a ordenar por nombre");
+			//Llamamos metodo para ordenar los datos
+			BaseDatos.ordenarNombres();
 		}else if(this.interfazPrincipal.botonTotalImpPagar == e.getSource()){
 			System.out.println("Entro a total impuestos a pagar");
 		}else if(this.interfazPrincipal.botonBuscarVehiculo == e.getSource()){
