@@ -55,4 +55,22 @@ public class BaseDatos {
 			}
 		}
 	}
+	public static void buscarVehiculo(String dato){
+		for (int i = 0; i < listaVehiculos.size(); i++) {
+			if(listaVehiculos.get(i).modelo.equals(dato) || listaVehiculos.get(i).placa.equals(dato)){
+				JOptionPane.showMessageDialog(null,"El vehiculo es= " +
+						listaVehiculos.get(i) + "\n Con el propietario= " +
+						listaPropietarios.get(i));
+				break;
+			}
+		}
+	}
+	public static void buscarPersona(String dato){
+		for (int i = 0; i < listaPropietarios.size(); i++) {
+			if(listaPropietarios.get(i).apellido.equals(dato) || listaPropietarios.get(i).numeroDocumento.equals(dato)){
+				JOptionPane.showMessageDialog(null,"El propietario es: " +
+						listaPropietarios.get(i) + "\n El vehiculo es= " + listaVehiculos.get(i));
+			}
+		}
+	}
 }

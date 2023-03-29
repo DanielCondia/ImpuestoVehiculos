@@ -41,9 +41,15 @@ public class Eventos implements ActionListener {
 					"desea calcular el total a pagar? (Ingrese el apllido o el número de documento)");
 			BaseDatos.confirmacionTotalPagar(propietarioCalcular);
 		}else if(this.interfazPrincipal.botonBuscarVehiculo == e.getSource()){
-			System.out.println("Entro a buscar vehiculo");
+			//Guardamos el vehiculo que el usuario quiere buscar
+			String vehiculoBuscar = JOptionPane.showInputDialog(null, "Ingrese el modelo del " +
+					"vehiculo que quiera buscar, o la placa");
+			BaseDatos.buscarVehiculo(vehiculoBuscar);
 		}else if(this.interfazPrincipal.botonBuscarPersona == e.getSource()){
-			System.out.println("Entro a buscar persona");
+			//Guardamos la persona que el usuario quiera buscar
+			String personaBuscar = JOptionPane.showInputDialog(null, "Ingrese el apellido " +
+					"o el número de documento de la persona");
+			BaseDatos.buscarPersona(personaBuscar);
 		}
 	}
 }
